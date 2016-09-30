@@ -6,12 +6,36 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
 
     </head>
     <body>
-        <p>A* Pathfinder with JS</p>
-        <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>
-        <script src="./canvas.js"></script>
-        <script src="./pathfind.js"></script>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>A* Pathfinder with JS</h1>            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <button>Start</button>            
+                </div>
+                <div class="col-xs-4">
+                    <button>End</button>            
+                </div>
+                <div class="col-xs-4">
+                    <button>Wall</button>            
+                </div>
+            </div>
+            <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button>Make Path</button>            
+                </div>
+            </div>
+        </div>
+        
+        <script src="./js/canvas.js"></script>
+        <script src="./js/pathfind.js"></script>
     </body>
 </html>

@@ -1,4 +1,4 @@
-var map = [{x: 0, y: 0, type: 'f'},
+/*var map = [{x: 0, y: 0, type: 'f'},
 {x: 0, y: 1, type: 'f'},
 {x: 0, y: 2, type: 'w'},
 {x: 0, y: 3, type: 'w'},
@@ -178,8 +178,9 @@ var map = [{x: 0, y: 0, type: 'f'},
 {x: 19, y: 6, type: 'w'},
 {x: 19, y: 7, type: 'w'},
 {x: 19, y: 8, type: 'w'}];
+*/
 
-function makePath(x1, y1, x2, y2) {
+function makePath(x1, y1, x2, y2, map) {
 //initialize the open list
 //initialize the closed list
 //put the starting node on the open list (you can leave its f at zero)
