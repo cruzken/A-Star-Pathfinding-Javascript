@@ -58,10 +58,48 @@ function getMousePos(canvas, evt) {
 }
 
 function makeStart(x, y) {
+  if(!startPos) {
+    ctx.beginPath();
+    ctx.rect((x * 50), (y * 50), 50, 50);
+    ctx.fillStyle = 'green';
+    ctx.fill();
+    ctx.stroke();
+  } else {
+    ctx.beginPath();
+    ctx.rect((startPos.x * 50), (startPos.y * 50), 50, 50);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.rect((x * 50), (y * 50), 50, 50);
+    ctx.fillStyle = 'green';
+    ctx.fill();
+    ctx.stroke();
+  }
   startPos = {x: x, y: y};
 }
 
 function makeEnd(x, y) {
+  if(!endPos) {
+    ctx.beginPath();
+    ctx.rect((x * 50), (y * 50), 50, 50);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    ctx.stroke();
+  } else {
+    ctx.beginPath();
+    ctx.rect((endPos.x * 50), (endPos.y * 50), 50, 50);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.rect((x * 50), (y * 50), 50, 50);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    ctx.stroke();
+  }
   endPos = {x: x, y: y};
 }
 
@@ -109,3 +147,12 @@ function createMap() {
   return map;
 }
 
+function drawPath(arr) {
+  for (var i = 1; i < arr.length; i++) {
+    ctx.beginPath();
+    ctx.rect((arr[i].x * 50), (arr[i].y * 50), 50, 50);
+    ctx.fillStyle = 'yellow';
+    ctx.fill();
+    ctx.stroke();
+  }
+}

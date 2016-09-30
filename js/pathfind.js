@@ -43,7 +43,7 @@ function makePath(x1, y1, x2, y2, map) {
         //    push q on the closed list
         closedList.push(q);
     } while (openList.length > 0);
-    console.log(optimalPath(closedList));
+    drawPath((optimalPath(closedList)));
     return optimalPath(closedList);
 }
 
