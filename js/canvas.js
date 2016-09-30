@@ -1,10 +1,14 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
+//var wallBtn = document.getElementById('wall');
+
 var width = 500;
 var height = 500;
 var mapPoints = createMap();
-console.log(mapPoints);
+var currentTile = '';
 
+var startPos;
+var endPos;
 
 
 for (var i = 0; i <= width; i+= 50) {
@@ -22,15 +26,28 @@ for (var j = 0; j <= height; j+= 50) {
 c.addEventListener('click', function(event) {
   var mouseCoords = getMousePos(c, event);
   console.log('x: ' + mouseCoords.x + ' y: ' + mouseCoords.y);
-  makeWall(mouseCoords.x, mouseCoords.y);
-  /*
-  ctx.rect((mouseCoords.x * 50), (mouseCoords.y * 50), 50, 50);
-  ctx.fillStyle = 'red';
-  ctx.fill();
-  ctx.stroke();
-  */
-
+  makeTile(mouseCoords.x, mouseCoords.y, currentTile);
 });
+
+function setTile(type) {
+  currentTile = type;
+}
+
+/*
+wallBtn.addEventListener('click', function(event) {
+  setTile('wall');
+});
+*/
+
+function makeTile(x, y, type) {
+  if (type === 'start') {
+    makeStart(x, y);
+  } else if (type === 'end') {
+    makeEnd(x, y);
+  } else {
+    makeWall(x, y);
+  }
+}
 
 function getMousePos(canvas, evt) {
   var rect = c.getBoundingClientRect();
@@ -38,6 +55,14 @@ function getMousePos(canvas, evt) {
     x: Math.floor((evt.clientX - rect.left) / 50),
     y: Math.floor((evt.clientY - rect.top) / 50)
   };
+}
+
+function makeStart(x, y) {
+  startPos = {x: x, y: y};
+}
+
+function makeEnd(x, y) {
+  endPos = {x: x, y: y};
 }
 
 function makeWall(x, y) {
