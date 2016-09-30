@@ -148,6 +148,9 @@ function createMap() {
 }
 
 function drawPath(arr) {
+  removeColor([255,255,0]);
+
+
   for (var i = 1; i < arr.length; i++) {
     ctx.beginPath();
     ctx.rect((arr[i].x * 50), (arr[i].y * 50), 50, 50);
@@ -155,4 +158,17 @@ function drawPath(arr) {
     ctx.fill();
     ctx.stroke();
   }
+}
+
+function removeColor(color){
+    var canvasData = ctx.getImageData(0, 0, 500, 500),
+        pix = canvasData.data;
+
+    for (var i = 0, n = pix.length; i <n; i += 4) {
+        if(pix[i] === color[0] && pix[i+1] === color[1] && pix[i+2] === color[2]){
+             pix[i+3] = 0;   
+        }
+    }
+
+    ctx.putImageData(canvasData, 0, 0);
 }
